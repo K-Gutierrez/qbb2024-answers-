@@ -1,0 +1,70 @@
+#####Question1
+
+##A) 
+
+ cut -f 7 hg38-gene-metadata-feature.tsv | uniq -c |sort
+ 
+## B)
+
+cut -f 7 hg38-gene-metadata-feature.tsv | grep -c "protein_coding" # There are 19618 protein coding 
+
+###Question2
+
+# A)
+cut -f 1 hg38-gene-metadata-go.tsv | uniq -c |sort -n # 273 ENSG00000168036 has the higher number of GOs
+
+# B)
+
+grep "ENSG00000168036" hg38-gene-metadata-go.tsv | sort -k 3 > ENSG00000168036.txt 
+
+### Question3
+
+# A) 
+
+grep -c 'IG_C_gene\|IG_D_gene\|IG_J_gene\|IG_LV_gene\|IG_V_gene' genes.gft
+
+
+grep "IG_._gene" genes.gft | cut -f 1 | uniq -c 
+
+#     52 chr2
+# 91 chr14
+#     16 chr15
+#      6 chr16
+#      1 chr21
+#     48 chr22
+
+B) 
+
+grep "IG_._pseudogene" genes.gft | cut -f 1 | uniq -c 
+
+#      1 chr1
+#     45 chr2
+#      1 chr8
+#      5 chr9
+#      1 chr10
+#     83 chr14
+#      6 chr15
+#      8 chr16
+#      1 chr18
+#     48 chr22
+
+C) IG_._pseudogene
+
+D)
+
+cut -f 1,4,5,15 gene-tabs.gtf > gene-tabs.bed 
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
